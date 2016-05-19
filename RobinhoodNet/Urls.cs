@@ -37,7 +37,7 @@ namespace BasicallyMe.RobinhoodNet
 
         public Url(Uri uri)
         {
-            if (uri == null) { throw new ArgumentNullException(nameof(uri)); }
+            if (uri == null) { throw new ArgumentNullException(""); }
             this.Uri = uri;
         }
 

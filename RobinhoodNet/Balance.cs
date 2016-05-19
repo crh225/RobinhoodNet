@@ -43,19 +43,19 @@ namespace BasicallyMe.RobinhoodNet
 
         }
 
-        internal Balance(Newtonsoft.Json.Linq.JToken json)
+        internal Balance(Newtonsoft.Json.Linq.JToken json) : this()
         {
-            this.CreatedAt = (DateTime)json["created_at"];
-            this.UpdatedAt = (DateTime)json["updated_at"];
+            CreatedAt = (DateTime)json["created_at"];
+            UpdatedAt = (DateTime)json["updated_at"];
 
-            this.CashHeldForOrders = (decimal)json["cash_held_for_orders"];
+            CashHeldForOrders = (decimal)json["cash_held_for_orders"];
 
-            this.Cash        = (decimal)json["cash"];
-            this.BuyingPower = (decimal)json["buying_power"];
+            Cash        = (decimal)json["cash"];
+            BuyingPower = (decimal)json["buying_power"];
 
-            this.CashAvailableForWithdrawal = (decimal)json["cash_available_for_withdrawal"];
-            this.UnclearedDeposits          = (decimal)json["uncleared_deposits"];
-            this.UnsettledFunds             = (decimal)json["unsettled_funds"];
+            CashAvailableForWithdrawal = (decimal)json["cash_available_for_withdrawal"];
+            UnclearedDeposits          = (decimal)json["uncleared_deposits"];
+            UnsettledFunds             = (decimal)json["unsettled_funds"];
         }
     }
     
