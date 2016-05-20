@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EA457A
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteWPF", "WpfApplication1\QuoteWPF.csproj", "{46DC9926-89FE-4B7F-9451-A219F539024E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteWPF", "WpfQuote\QuoteWPF.csproj", "{46DC9926-89FE-4B7F-9451-A219F539024E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

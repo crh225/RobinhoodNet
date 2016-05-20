@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
+using BasicallyMe.RobinhoodNet;
+
 namespace WpfApplication1
 {
     /// <summary>
@@ -32,15 +34,35 @@ namespace WpfApplication1
             taskbarItemInfo.ProgressState = TaskbarItemProgressState.Normal;
         }
 
-        private void Speak(object sender, System.Windows.RoutedEventArgs e)
+        private async void Speak(object sender, System.Windows.RoutedEventArgs e)
         {
 
             TaskbarItemInfo taskbarItemInfo = new TaskbarItemInfo();
             taskbarItemInfo.ProgressValue = .5;
             taskbarItemInfo.ProgressState = TaskbarItemProgressState.Paused;
 
+            var args = new[] { "RgQuote", "F" }; // string[]
 
+            var rh = new RobinhoodClient();
 
+            await authenticate(rh);
+
+            while (1 < 2)
+            {
+                var quotes = await rh.DownloadQuote(args);
+
+                //Console.WriteLine(DateTime.Now);  
+                foreach (var q in quotes)
+                {
+                   
+               
+                if (q != null)
+                    {
+                        textToSpeech.Text = q.LastTradePrice.ToString();
+                    }
+
+                 }
+            }
 
         }
         private void PART_CLOSE_Click(object sender, RoutedEventArgs e)
@@ -66,6 +88,38 @@ namespace WpfApplication1
         private void PART_TITLEBAR_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+
+        static readonly string __tokenFile = System.IO.Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "RobinhoodNet",
+            "token");
+
+
+
+        static async Task authenticate(RobinhoodClient client)
+        {
+            if (System.IO.File.Exists(__tokenFile))
+            {
+                var token = System.IO.File.ReadAllText(__tokenFile);
+                await client.Authenticate(token);
+            }
+            else
+            {
+                //Console.Write("username: ");
+                //string userName = Console.ReadLine();
+
+                //Console.Write("password: ");
+                //string password = getConsolePassword();
+
+                //await client.Authenticate(userName, password);
+
+                //System.IO.Directory.CreateDirectory(
+                //    System.IO.Path.GetDirectoryName(__tokenFile));
+
+                //System.IO.File.WriteAllText(__tokenFile, client.AuthToken);
+            }
         }
     }
 }
