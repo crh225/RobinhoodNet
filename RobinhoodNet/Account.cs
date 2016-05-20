@@ -87,7 +87,7 @@ namespace BasicallyMe.RobinhoodNet
 
             MaxAchEarlyAccessAmount = (decimal)json["max_ach_early_access_amount"];
 
-            CashBalance = new Balance(json["cash_balances"]);
+            //CashBalance = new Balance(json["cash_balances"]);
         }
     }
     
