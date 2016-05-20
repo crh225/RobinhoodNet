@@ -1,5 +1,10 @@
 ﻿RobinhoodNet
 ============
+---
+this is the forked version
+I might be making daily commits because of the different locations I will be commiting from. Hopefully, they dont break.
+Right now, I am working on WPF Desktop Trading App
+---
 
 This is a .NET client of the publically available REST API for the popular Robinhood
 zero comission trading app. It targets the Portable subset of the .NET Framework for
